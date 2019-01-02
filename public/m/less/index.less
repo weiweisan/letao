@@ -1,0 +1,63 @@
+/* 这是主页的less文件 */
+
+/* 引入公共的less */
+@import "base.less";
+
+
+/* 主体样式 */
+
+#main{
+    background-color: #fff;
+    /* 导航条样式 */
+    #nav{
+        padding: .1rem;
+        a{
+            display: block;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    /* 广告样式 */
+    #banner{
+        padding: .1rem;
+        /* 右边盒子 */
+        .left{
+            a{
+                /* 弹性布局 */
+                display: flex;
+                img{
+                    /* 两张图片所以各占50% */
+                    width: 50%;
+                    /* 根据右边盒子的一半写高度 要不然图片会变形 */
+                    height: 1.23rem;
+                }
+            }
+        }
+        /* 右边盒子 */
+        .right{
+            a{
+                /* a标签转块 */
+                display: block;
+                img{
+                    /* 右边只有一张图片 所以100% */
+                    width: 100%;
+                    /* 写死rem高度 自适应 让左边盒子有个高度参照 */
+                    height: 2.46rem;
+                }
+            }
+        }
+    }
+
+    /* 品牌专区 */
+    #brand,#sport,#women,#men{
+        padding: .1rem;
+        a{
+            display: block;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
