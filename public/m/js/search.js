@@ -26,7 +26,7 @@ $(function(){
             //2.先获取之前额数组 获取之前的键 historyData1里面的数组
         var arr = localStorage.getItem('historyData1');
         //5.对数组字符串进行一个转换成一个js数组 但是又有可能是第一次加 之前数组不存在 没有数组转不了会是null 空数组
-        
+        //短路思想 前面的能成立则返回前面的 否则返回后面的
         arr = JSON.parse(arr) || [];   
         //6.还得做数组的去重如果 数组中已经有了这个值 先把 这个值删掉 再去添加这个值
         //判断当前值在数组中存在 因为存在返回当前值得索引 不会是-1
@@ -55,6 +55,7 @@ $(function(){
        //1.读取本地存储的值
        var arr = localStorage.getItem('historyData1');
        //2.对数组字符串进行一个准换成一个JS数组 但是又有可能是第一次加 之前数组不存在 没有数组转不了使用 空数组
+       //短路思想 前面的能成立则返回前面的 否则返回后面的
        arr = JSON.parse(arr) || [];
        console.log(arr);
        //把 arr 作为一个值包装 对象的rows数组上
