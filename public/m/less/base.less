@@ -14,6 +14,9 @@ img{
 a{
     color: #666;
 }
+a:active{
+    color: #666;
+}
 
 /* 把li标签的小点点去掉 */
 li {
@@ -108,6 +111,30 @@ body{
         align-items: center;
         &.active{
             color: orange;
+        }
+    }
+}
+
+/* 搜索框样式 */
+.search-form{
+    padding: .1rem;
+    form{
+        display: flex;
+        input{
+            flex: 1;
+            margin-bottom: 0;
+            background-color: #fff;
+            text-align: left;
+            font-size: .14rem;
+            border: 1px solid @main-color;
+            /* 输入框去掉右上角的圆角 */
+            border-radius: .06rem 0 0 .06rem;
+        }
+        button{
+            font-size: .14rem;
+            background-color: @main-color;
+            /* 按钮去掉左上角和左下角的圆角 */
+            border-radius: 0 .06rem .06rem 0;
         }
     }
 }

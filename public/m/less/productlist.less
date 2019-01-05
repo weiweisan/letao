@@ -1,0 +1,66 @@
+/* 引入公共样式 */
+@import 'base.less';
+
+/* 中间的主体区域 */
+#main{
+    /* 给main设置一个padding 把内容再玩下挤55px高度 (form的高度) */
+    padding-top: .55rem;
+    .search-form{
+        /* 表单定位到main的顶部 和main的padding区域重叠在一起 */
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        height: .55rem;
+    }
+    .product-list{
+        /* 让下拉刷新父容器参照product-lest来定位 */
+        position: relative;
+        /* 高度和main的内容一样高100% */
+        height: 100%;
+        /* 页眉标题区域 */
+        .mui-card-header{
+            font-size: .14rem;
+            a{
+                &.active{
+                    color: red;
+                }
+            }
+        }
+        /* 搜索内容主体区域 卡片内容区域 */
+        .mui-card-content{
+            .mui-row{
+                >div{
+                    /* 选中奇数div列*/
+                    &:nth-child(odd){
+                        padding-right: .05rem;
+                    }
+                    /* 选中偶数div列 */
+                    &:nth-child(even){
+                        padding-left: .05rem;
+                    }
+                }
+                a{
+                    display: block;
+                    /* a标签下面都是行内元素或者行内块元素 所以都会继承 */
+                    text-align: center;
+                    padding-bottom: .1rem;
+                    box-shadow: 0px 0px 2px #ccc;
+                    img{
+                        width: 100%;
+                    }
+                    .product-name {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box; //作为弹性伸缩盒子模型显示。
+                        -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+                        -webkit-line-clamp: 2; //显示的行
+                        line-height: .16rem;
+                    }
+                }
+            }
+        }
+    }
+
+}

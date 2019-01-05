@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no,
     initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘移动端主页</title>
+    <title>乐淘移动端搜索页面</title>
     <!-- 引入站点图标 -->
     <link rel="icon" href="images/favicon.ico">
     <!-- 1.引入MUI的css -->
@@ -47,7 +47,7 @@
                 <!--页眉，放置标题-->
                 <div class="mui-card-header">
                     <span>搜索历史</span>
-                    <a href="#" class="fa fa-trash-o">清空记录</a>
+                    <a href="#" class="fa fa-trash-o btn-clear">清空记录</a>
                 </div>
                 <!--内容区-->
                 <div class="mui-card-content">
@@ -80,10 +80,10 @@
     <script id="searchHistoryTpl" type="text/html">
 
         {{ if rows.length > 0}}
-            {{ each rows value }}
+            {{ each rows value index}}
                 <li class="mui-table-view-cell">
                     {{value}}
-                    <span class="mui-badge mui-badge-success fa fa-times"></span>
+                    <span class="mui-badge mui-badge-success fa fa-times btn-delete" data-index="{{ index }}"></span>
                 </li>
             {{ /each }}    
         {{ else }}

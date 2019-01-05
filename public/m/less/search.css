@@ -103,6 +103,7 @@ body {
 #footer a.active {
   color: orange;
 }
+/* 搜索框样式 */
 #main .search-form {
   padding: 10px;
 }
