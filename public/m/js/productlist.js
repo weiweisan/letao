@@ -148,8 +148,10 @@ $(function () {
                         queryProduct();
                         // 3. 结束下拉加载转圈圈 官方文档有坑点 建议到dom文档里去找 
                         mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-                        // 4. 下拉刷新完成后去重置 上拉加载效果
-
+                         // 4. 下拉刷新完成后去重置上拉加载效果
+                         mui('#refreshContainer').pullRefresh().refresh(true);
+                         // 5. 除了重置上拉加载的效果 还要把page也重置为第一页 一定要重置page不然下一次请求到了很大page
+                         page = 1;
                     }, 2000);
                 }
             },
@@ -188,6 +190,17 @@ $(function () {
         }
     });
 
+    /*5.商品购买功能实现
+        1.给里面的立即购买按钮添加一个点击事件 事件委托
+        2.获取传递过来的id 
+        3.然后在去跳转页面
+    */
+   $('.product-list').on('tap','.mui-btn',function(){
+        //获取传递过来的id
+        var id = $(this).data('id');
+        //跳转
+        location = 'detail.html?id='+id;
+   })
 
     // 因为这个页面需要多次调用这个方法 所以为了解决代码 冗余 把它封装到函数中
     function queryProduct() {

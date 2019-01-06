@@ -1,0 +1,58 @@
+/* 这是处理商品详情的less文件 */
+/* 引入公共样式 */
+@import 'base.less';
+
+/* 主体内容区域 */
+#main{
+    #slide{
+        img{
+            height: 3rem;
+        }
+    }
+    #dedail{
+        p{
+            color: #333;
+        }
+        .product-size{
+            /* 设置中线对齐 */
+            vertical-align: middle;
+            button{
+                vertical-align: middle;
+                margin-bottom: 0.05rem;
+            }
+        }
+        .product-num{
+            /* 设置对齐 */
+            vertical-align: middle;
+            button{
+                vertical-align: middle;
+            }
+        }
+        /* 边框是给 li设置伪元素添加的 如果要贴在最左边设置在最左边 */
+        .mui-table-view-cell:after{
+            left: 0;
+            background-color: #888;
+        }
+    }
+}
+
+/* 尾部区域 */
+#footer{
+    background-color: #ccc;
+    .fa-shopping-cart{
+        font-size: .2rem;
+        color: #666;
+        line-height: .46rem;
+    }
+    .mui-row{
+        >div{
+            /* 只有从第二个div以后需要设置padding 排除掉第一个购物车图标的div */
+            &:nth-child(n+2){
+                padding: 5px;
+            }
+            button{
+                width: 100%;
+            }
+        }
+    }
+}

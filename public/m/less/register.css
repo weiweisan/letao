@@ -1,3 +1,5 @@
+/* 这是处理注册中心页面的less文件 */
+/* 引入公共样式 */
 /* 这是公共样式的less文件 */
 /* 乐淘的主题颜色 */
 /* img要设置 MUI没有设置底线对齐 */
@@ -10,9 +12,6 @@ img {
 }
 a {
   color: #666;
-}
-input {
-  font-size: .14rem;
 }
 a:active {
   color: #666;
@@ -129,4 +128,17 @@ body {
   background-color: #006699;
   /* 按钮去掉左上角和左下角的圆角 */
   border-radius: 0 .06rem .06rem 0;
+}
+#main .get-vcode {
+  position: absolute;
+  right: 0;
+  width: auto;
+  height: .4rem;
+}
+#main .mui-button-row:last-child {
+  padding: .1rem;
+  height: auto;
+}
+#main .btn-register {
+  width: 100%;
 }

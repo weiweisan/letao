@@ -1,3 +1,5 @@
+/* 这是处理商品详情的less文件 */
+/* 引入公共样式 */
 /* 这是公共样式的less文件 */
 /* 乐淘的主题颜色 */
 /* img要设置 MUI没有设置底线对齐 */
@@ -10,9 +12,6 @@ img {
 }
 a {
   color: #666;
-}
-input {
-  font-size: .14rem;
 }
 a:active {
   color: #666;
@@ -129,4 +128,51 @@ body {
   background-color: #006699;
   /* 按钮去掉左上角和左下角的圆角 */
   border-radius: 0 .06rem .06rem 0;
+}
+/* 主体内容区域 */
+#main #slide img {
+  height: 3rem;
+}
+#main #dedail {
+  /* 边框是给 li设置伪元素添加的 如果要贴在最左边设置在最左边 */
+}
+#main #dedail p {
+  color: #333;
+}
+#main #dedail .product-size {
+  /* 设置中线对齐 */
+  vertical-align: middle;
+}
+#main #dedail .product-size button {
+  vertical-align: middle;
+  margin-bottom: 0.05rem;
+}
+#main #dedail .product-num {
+  /* 设置对齐 */
+  vertical-align: middle;
+}
+#main #dedail .product-num button {
+  vertical-align: middle;
+}
+#main #dedail .mui-table-view-cell:after {
+  left: 0;
+  background-color: #888;
+}
+/* 尾部区域 */
+#footer {
+  background-color: #ccc;
+}
+#footer .fa-shopping-cart {
+  font-size: .2rem;
+  color: #666;
+  line-height: .46rem;
+}
+#footer .mui-row > div {
+  /* 只有从第二个div以后需要设置padding 排除掉第一个购物车图标的div */
+}
+#footer .mui-row > div:nth-child(n+2) {
+  padding: 5px;
+}
+#footer .mui-row > div button {
+  width: 100%;
 }

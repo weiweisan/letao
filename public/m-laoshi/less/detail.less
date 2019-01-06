@@ -1,0 +1,46 @@
+@import 'base.less';
+#main{
+    #slide{
+        // height: 3rem;
+        img{
+            // height: 3rem;
+        }
+    }
+    #detail{
+        p{
+            color:#333;
+        }
+        .product-size{
+            vertical-align: middle;
+            button{
+                vertical-align: middle;
+                margin-bottom: .05rem;
+            }
+        }
+        /* 边框是给li设置伪元素添加的 如果要贴在最左边设置定位在最左边 */
+        .mui-table-view-cell:after{
+            left: 0;
+            background-color: #888;
+        }
+    }
+}
+
+#footer{
+    background-color: #ccc;
+    .fa-shopping-cart{
+        font-size: .2rem;
+        color:#666;
+        line-height: .46rem;
+    }
+    .mui-row{
+        >div{
+            /* 只有从第二个div以后需要设置padding 排除掉第一个购车图标的div */
+            &:nth-child(n+2){
+                padding: 5px;
+            }
+            button{
+                width: 100%;
+            }
+        }
+    }
+}
