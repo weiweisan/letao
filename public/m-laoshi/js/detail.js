@@ -25,7 +25,7 @@ $(function () {
             // 2.4 定义一个数组把循环的每一个值都添加到数组中
             var size = [];
             // 2.3 写一个循环从min开始到max结束
-            for (var i =  min; i <= max; i++) {
+            for (var i = min; i <= max; i++) {
                 size.push(i);
             }
             // console.log(size);
@@ -68,38 +68,55 @@ $(function () {
         5. 接收API返回值是成功还是失败 如果是成功表示加入成功去购物车查看
         6. 如果失败表示未登录 跳转到登录页面让用户去登录 */
     // 1. 点击加入购物车按钮实现加入购物车
-    $('.btn-add-cart').on('tap',function (){
+    $('.btn-add-cart').on('tap', function () {
         // 2. 获取url参数值的函数
         var size = $('.btn-size.mui-btn-warning').data('size');
         console.log(size);
         // 3. 如果没有选择尺码或者数量要提示用户选择
-        if(!size){
-            mui.toast('请选择尺码!',{ duration:1000, type:'div' });
-            return false; 
+        if (!size) {
+            mui.toast('请选择尺码!', {
+                duration: 1000,
+                type: 'div'
+            });
+            return false;
         }
         var num = mui('.mui-numbox').numbox().getValue();
         console.log(num);
-        if(!num){
-            mui.toast('请选择数量!',{ duration:1000, type:'div' });
-            return false; 
+        if (!num) {
+            mui.toast('请选择数量!', {
+                duration: 1000,
+                type: 'div'
+            });
+            return false;
         }
         // 4. 把用户选择器的尺码数量等作为参数调用加入购物车APi
         $.ajax({
             url: '/cart/addCart',
-            type: 'post',//因为提交数据 提交数据都是post请求一定要写类型为post
-            data: {productId:id,size:size,num:num},//productIdAPi的参数名 id自己参数的值 是一个变量存了当前url中id的值
-            success: function (data){
+            type: 'post', //因为提交数据 提交数据都是post请求一定要写类型为post
+            data: {
+                productId: id,
+                size: size,
+                num: num
+            }, //productIdAPi的参数名 id自己参数的值 是一个变量存了当前url中id的值
+            success: function (data) {
                 console.log(data);
                 // 5. 判断后台返回的数据是否成功 如果成功就提示用户是否去购物车查看  如果失败表示未登录 跳转到登录页面
-                if(data.success){
-                    // 6. 表示添加成功
-                }else{
+                if (data.success) {
+                    // 6. 表示添加成功 问用户是去购物车查看
+                    var btnArray = ['是', '否'];
+                    mui.confirm('添加成功 是否去购物车查看？', '温馨提示', btnArray, function (e) {
+                        if (e.index == 0) {
+                            // 7. 点击了是就跳转到购物车
+                            location = 'cart.html';
+                        }
+                    });
+                } else {
                     // 7. 不是成功就都是失败 跳转到登录页面 注意在商品详情页面 
                     // 跳转到登录的时候吧当前商品详情页面的url带过去 通过url参数 值是当前页面的url
-                    location = 'login.html?returnUrl='+location.href;
+                    location = 'login.html?returnUrl=' + location.href;
                 }
             }
-        }) 
+        })
     });
 
     // 获取url参数值的函数

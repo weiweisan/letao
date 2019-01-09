@@ -1,0 +1,205 @@
+/* 这是处理购物车页面的less文件 */
+/* 这是公共样式的less文件 */
+/* 乐淘的主题颜色 */
+/* img要设置 MUI没有设置底线对齐 */
+img {
+  vertical-align: middle;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #666;
+}
+input {
+  font-size: .14rem;
+}
+a:active {
+  color: #666;
+}
+/* 把li标签的小点点去掉 */
+li {
+  list-style: none;
+}
+body {
+  max-width: 750px;
+  margin: 0 auto;
+  /* 把MUI默认字体17变成14px */
+  font-size: .14rem;
+  /* 如果觉得文字有点偏上 行高继承body的默认21px 行高 所有有点偏上 所以设置覆盖掉框架原来的行高 */
+  line-height: .14rem;
+}
+/* 给body设置padding 让main被挤到中间来 */
+body {
+  padding: .45rem 0;
+  /* 给body设置高度 100vh 方便区域滚动 */
+  height: 100vh;
+}
+/* 头部区域样式 */
+#header {
+  /* 给头部区域设置flex布局 */
+  text-align: center;
+  background-color: #006699;
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  /* 这里定位已经失去宽度,所以宽度一定要加上 */
+  width: 100%;
+}
+#header .left {
+  width: .45rem;
+  height: .45rem;
+  line-height: .45rem;
+  color: #fff;
+}
+#header .center {
+  flex: 1;
+  /* 这个容器默认有高度 所以要设置margin:0 */
+  margin: 0;
+  line-height: .45rem;
+  color: #fff;
+  font-weight: normal;
+}
+#header .center input {
+  /* 去掉输入框默认底部margin */
+  margin-bottom: 0;
+  background-color: #fff;
+  /* 把输入框的文字颜色改成黑色 */
+  color: #000;
+  /* 默认重复覆盖文字居左 */
+  text-align: left;
+}
+#header .right {
+  width: .45rem;
+  height: .45rem;
+  line-height: .45rem;
+  color: #fff;
+}
+/* 中间部分的主体样式 */
+#main {
+  /* 会在main里面添加一个区域滚动器 MUI自带了绝对定位 可以main设置相对定位 让mui-scroll-wrapper相对main去定位 */
+  position: relative;
+  /* 同时需要给main设置高度100% 让 main在中间范围显示 继承body内容的高度 */
+  height: 100%;
+}
+/* 底部区域的样式 */
+#footer {
+  background-color: #006699;
+  height: .45rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  /* 注意加宽度 定位让它已经没有默认宽度  */
+  width: 100%;
+}
+#footer a {
+  /* 设置固定定位 */
+  display: flex;
+  height: .45rem;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#footer a.active {
+  color: orange;
+}
+/* 搜索框样式 */
+.search-form {
+  padding: .1rem;
+}
+.search-form form {
+  display: flex;
+}
+.search-form form input {
+  flex: 1;
+  margin-bottom: 0;
+  background-color: #fff;
+  text-align: left;
+  font-size: .14rem;
+  border: 1px solid #006699;
+  /* 输入框去掉右上角的圆角 */
+  border-radius: .06rem 0 0 .06rem;
+}
+.search-form form button {
+  font-size: .14rem;
+  background-color: #006699;
+  /* 按钮去掉左上角和左下角的圆角 */
+  border-radius: 0 .06rem .06rem 0;
+}
+body {
+  /* 当前cart页面的滑动范围剪掉底部和订单的高度 是80px */
+  padding-bottom: .8rem;
+}
+/* 主体区域 */
+#main .mui-table-view .mui-table-view-cell a {
+  /* 列表的a容器 */
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right {
+  /* a容器里面的左侧 商品图片和复选框 */
+  /* a容器里面的右侧商品信息 */
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left img {
+  /* 要改max-width 因为MUI设置是 max-width */
+  max-width: .6rem;
+  height: .6rem;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left .mui-checkbox {
+  text-align: center;
+  /* 表示没选择之前的样式 */
+  /* 表示选中了的样式 */
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left .mui-checkbox input {
+  /* 去掉默认绝对定位 */
+  position: static;
+  /* 修改input复选框里面的伪元素的字体颜色 */
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left .mui-checkbox input::before {
+  color: aqua;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-pull-left .mui-checkbox input[type='checkbox']:checked:before {
+  color: aqua;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-media-body {
+  line-height: .22rem;
+  padding-left: .1rem;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-media-body .product-name {
+  /* 注意去掉商品名称的强制不换行属性 */
+  white-space: normal;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-media-body .product-price span {
+  color: red;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-media-body .product-price del {
+  color: #ccc;
+}
+#main .mui-table-view .mui-table-view-cell a.mui-navigate-right .mui-media-body .product-params {
+  display: flex;
+  /* 设置2端对齐 */
+  justify-content: space-between;
+}
+/* 订单区域 */
+#order {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  /* 定位到footer上面 */
+  bottom: .45rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  line-height: .33rem;
+  border-top: 1px solid #ccc;
+  z-index: 999;
+}
+#order p {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: red;
+  padding-left: .1rem;
+}

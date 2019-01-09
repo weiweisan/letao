@@ -1,3 +1,4 @@
+/* 这是处理注册表单的js文件 */
 $(function () {
     /* 1.实现注册功能
         1.进行表单非空验证 
@@ -8,7 +9,7 @@ $(function () {
         //运用到开关思想
         var check = true;
         //1.2获取所有输入框
-                //1.6为空就获取为空的元素的上
+                
         var inputs = $('.mui-input-group input');
         //1.3遍历每一个输入框
         inputs.each(function (index, value) {
@@ -16,7 +17,8 @@ $(function () {
             var val = $(value).val().trim();
             //1.5判断当前输入的值是否为空
             if (!val) {
-                //1.6一个兄弟label 元素里面的文本值
+                
+                //1.6为空就获取为空的元素的上一个兄弟label 元素里面的文本值
                 var label = $(value).prev().text();
                 //1.7拼接上 文本值 不允许为空
                 mui.toast(label + "不允许为空");
